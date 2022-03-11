@@ -12,13 +12,13 @@ namespace First_Asp.Net_Project.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class emmployee
+    public partial class Std_table
     {
-        public int eid { get; set; }
-        public string ename { get; set; }
-        public string eaddress { get; set; }
-        public string egender { get; set; }
-        public int AGe { get; set; }
-        public Nullable<long> Phone_No { get; set; }
+        public int Sid { get; set; }
+        public string Sname { get; set; }
+        public string Saddress { get; set; }
+        public string Sgender { get; set; }
+        public int Age { get; set; }
+        public long Phone_No { get; set; }
     }
 }

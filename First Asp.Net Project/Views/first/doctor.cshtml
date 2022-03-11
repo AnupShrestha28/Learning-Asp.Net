@@ -1,0 +1,30 @@
+﻿
+@model  List<First_Asp.Net_Project.Models.doctabl>
+@{
+    ViewBag.Title = "doctor";
+    int id = 0;
+}
+
+<h2>doctor</h2>
+
+<table class="table" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Phone No</th>
+    </tr>
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@(++id)</td>
+            <td>@(data.dname)</td>
+            <td>@(data.dAddress)</td>
+            <td>@(data.dGender)</td>
+            <td>@(data.Age)</td>
+            <td>@(data.Phone_No)</td>
+        </tr>
+    }
+</table>

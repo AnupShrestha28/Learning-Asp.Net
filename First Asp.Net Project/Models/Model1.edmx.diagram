@@ -5,7 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="82936125f4ef446a9b95c63909d15049" Name="Diagram1">
-        <EntityTypeShape EntityType="AnoopModel.emmployee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnoopModel.doctabl" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AnoopModel.emmployee" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AnoopModel.mstd" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AnoopModel.Std_table" Width="1.5" PointX="2.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

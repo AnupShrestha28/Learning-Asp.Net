@@ -13,10 +13,10 @@ namespace First_Asp.Net_Project.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MainEntities : DbContext
+    public partial class AnoopEntities : DbContext
     {
-        public MainEntities()
-            : base("name=MainEntities")
+        public AnoopEntities()
+            : base("name=AnoopEntities")
         {
         }
     
@@ -25,9 +25,6 @@ namespace First_Asp.Net_Project.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<doctabl> doctabls { get; set; }
         public virtual DbSet<emmployee> emmployees { get; set; }
-        public virtual DbSet<mstd> mstds { get; set; }
-        public virtual DbSet<Std_table> Std_table { get; set; }
     }
 }

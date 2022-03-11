@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AnoopModel1StoreContainer" CdmEntityContainer="AnoopEntities">
+    <EntitySetMapping Name="emmployees">
+      <EntityTypeMapping TypeName="AnoopModel1.emmployee">
+        <MappingFragment StoreEntitySet="emmployee">
+          <ScalarProperty Name="eid" ColumnName="eid" />
+          <ScalarProperty Name="ename" ColumnName="ename" />
+          <ScalarProperty Name="eaddress" ColumnName="eaddress" />
+          <ScalarProperty Name="egender" ColumnName="egender" />
+          <ScalarProperty Name="AGe" ColumnName="AGe" />
+          <ScalarProperty Name="Phone_No" ColumnName="Phone No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

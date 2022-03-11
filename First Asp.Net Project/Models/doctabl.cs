@@ -12,13 +12,13 @@ namespace First_Asp.Net_Project.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class emmployee
+    public partial class doctabl
     {
-        public int eid { get; set; }
-        public string ename { get; set; }
-        public string eaddress { get; set; }
-        public string egender { get; set; }
-        public int AGe { get; set; }
-        public Nullable<long> Phone_No { get; set; }
+        public int did { get; set; }
+        public string dname { get; set; }
+        public string dAddress { get; set; }
+        public string dGender { get; set; }
+        public int Age { get; set; }
+        public long Phone_No { get; set; }
     }
 }
