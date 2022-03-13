@@ -4,55 +4,120 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AnoopModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AnoopModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="doctabl">
+          <Key>
+            <PropertyRef Name="did" />
+          </Key>
+          <Property Name="did" Type="int" Nullable="false" />
+          <Property Name="dname" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="dAddress" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="dGender" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Phone No" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="emmployee">
           <Key>
             <PropertyRef Name="eid" />
           </Key>
-          <Property Name="eid" Type="int" Nullable="false" />
+          <Property Name="eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ename" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="eaddress" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="egender" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="AGe" Type="int" Nullable="false" />
-          <Property Name="Phone No" Type="bigint" />
+          <Property Name="Contact" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Std_table">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="int" Nullable="false" />
+          <Property Name="Sname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Saddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sgender" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Phone No" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityContainer Name="AnoopModel1StoreContainer">
+          <EntitySet Name="doctabl" EntityType="Self.doctabl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="emmployee" EntityType="Self.emmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Std_table" EntityType="Self.Std_table" Schema="dbo" Table="Std.table" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AnoopModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AnoopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="doctabls" EntityType="AnoopModel1.doctabl" />
+          <EntitySet Name="emmployees" EntityType="AnoopModel1.emmployee" />
+          <EntitySet Name="Std_table" EntityType="AnoopModel1.Std_table" />
+        </EntityContainer>
+        <EntityType Name="doctabl">
+          <Key>
+            <PropertyRef Name="did" />
+          </Key>
+          <Property Name="did" Type="Int32" Nullable="false" />
+          <Property Name="dname" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="dAddress" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="dGender" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Phone_No" Type="Int64" Nullable="false" />
+        </EntityType>
         <EntityType Name="emmployee">
           <Key>
             <PropertyRef Name="eid" />
           </Key>
-          <Property Name="eid" Type="Int32" Nullable="false" />
-          <Property Name="ename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="eaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="egender" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="AGe" Type="Int32" Nullable="false" />
-          <Property Name="Phone_No" Type="Int64" />
+          <Property Name="eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ename" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="eaddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="Int64" />
         </EntityType>
-        <EntityContainer Name="AnoopEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="emmployees" EntityType="Self.emmployee" />
-        </EntityContainer>
+        <EntityType Name="Std_table">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="Int32" Nullable="false" />
+          <Property Name="Sname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Saddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sgender" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Phone_No" Type="Int64" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AnoopModel1StoreContainer" CdmEntityContainer="AnoopEntities">
+          <EntitySetMapping Name="doctabls">
+            <EntityTypeMapping TypeName="AnoopModel1.doctabl">
+              <MappingFragment StoreEntitySet="doctabl">
+                <ScalarProperty Name="Phone_No" ColumnName="Phone No" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="dGender" ColumnName="dGender" />
+                <ScalarProperty Name="dAddress" ColumnName="dAddress" />
+                <ScalarProperty Name="dname" ColumnName="dname" />
+                <ScalarProperty Name="did" ColumnName="did" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="emmployees">
             <EntityTypeMapping TypeName="AnoopModel1.emmployee">
               <MappingFragment StoreEntitySet="emmployee">
-                <ScalarProperty Name="eid" ColumnName="eid" />
-                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
                 <ScalarProperty Name="eaddress" ColumnName="eaddress" />
-                <ScalarProperty Name="egender" ColumnName="egender" />
-                <ScalarProperty Name="AGe" ColumnName="AGe" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="eid" ColumnName="eid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Std_table">
+            <EntityTypeMapping TypeName="AnoopModel1.Std_table">
+              <MappingFragment StoreEntitySet="Std_table">
                 <ScalarProperty Name="Phone_No" ColumnName="Phone No" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sgender" ColumnName="Sgender" />
+                <ScalarProperty Name="Saddress" ColumnName="Saddress" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

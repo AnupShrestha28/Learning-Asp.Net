@@ -22,16 +22,6 @@
     <Property Name="AGe" Type="int" Nullable="false" />
     <Property Name="Phone No" Type="bigint" />
   </EntityType>
-  <EntityType Name="mstd">
-    <Key>
-      <PropertyRef Name="mid" />
-    </Key>
-    <Property Name="mid" Type="int" Nullable="false" />
-    <Property Name="mname" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="maddress" Type="varchar" MaxLength="70" Nullable="false" />
-    <Property Name="Gender" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Age" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="Std_table">
     <Key>
       <PropertyRef Name="Sid" />
@@ -46,7 +36,6 @@
   <EntityContainer Name="AnoopModelStoreContainer">
     <EntitySet Name="doctabl" EntityType="Self.doctabl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="emmployee" EntityType="Self.emmployee" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="mstd" EntityType="Self.mstd" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Std_table" EntityType="Self.Std_table" Schema="dbo" Table="Std.table" store:Type="Tables" />
   </EntityContainer>
 </Schema>

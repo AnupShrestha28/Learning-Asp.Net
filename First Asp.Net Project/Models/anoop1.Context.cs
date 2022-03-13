@@ -25,6 +25,8 @@ namespace First_Asp.Net_Project.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<doctabl> doctabls { get; set; }
         public virtual DbSet<emmployee> emmployees { get; set; }
+        public virtual DbSet<Std_table> Std_table { get; set; }
     }
 }

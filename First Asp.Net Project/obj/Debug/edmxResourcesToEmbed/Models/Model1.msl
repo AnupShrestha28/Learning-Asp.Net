@@ -25,17 +25,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="mstds">
-      <EntityTypeMapping TypeName="AnoopModel.mstd">
-        <MappingFragment StoreEntitySet="mstd">
-          <ScalarProperty Name="Age" ColumnName="Age" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="maddress" ColumnName="maddress" />
-          <ScalarProperty Name="mname" ColumnName="mname" />
-          <ScalarProperty Name="mid" ColumnName="mid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Std_table">
       <EntityTypeMapping TypeName="AnoopModel.Std_table">
         <MappingFragment StoreEntitySet="Std_table">

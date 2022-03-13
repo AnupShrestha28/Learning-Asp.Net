@@ -9,7 +9,7 @@ namespace First_Asp.Net_Project.Controllers
 {
     public class firstController : Controller
     {
-        MainEntities db = new MainEntities();
+        AnoopEntities db = new AnoopEntities();
         // GET: first
         public ActionResult Index()
         {
@@ -21,15 +21,25 @@ namespace First_Asp.Net_Project.Controllers
             List<doctabl> all_data = db.doctabls.ToList();
             return View(all_data);
         }
-        public ActionResult anoop()
+
+
+        public ActionResult anoops()
         {
-            List<Std_table> all_data = db.Std_table.ToList();
+            List<emmployee> all_data = db.emmployees.ToList();
             return View(all_data);
         }
-        public ActionResult hahaha()
+
+        public ActionResult create()
         {
-            List<mstd> all_data = db.mstds.ToList();
-            return View(all_data);
+          
+            return View();
+        }
+
+        public ActionResult SaveData(emmployee emmployee)
+        {
+            db.emmployees.Add(emmployee);
+            db.SaveChanges();
+            return RedirectToAction("Doctor");
         }
     }
 }

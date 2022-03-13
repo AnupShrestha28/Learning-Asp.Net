@@ -17,8 +17,6 @@ namespace First_Asp.Net_Project.Models
         public int eid { get; set; }
         public string ename { get; set; }
         public string eaddress { get; set; }
-        public string egender { get; set; }
-        public int AGe { get; set; }
-        public Nullable<long> Phone_No { get; set; }
+        public Nullable<long> Contact { get; set; }
     }
 }

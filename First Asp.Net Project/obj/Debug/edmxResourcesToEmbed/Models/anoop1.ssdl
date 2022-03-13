@@ -1,17 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AnoopModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="doctabl">
+    <Key>
+      <PropertyRef Name="did" />
+    </Key>
+    <Property Name="did" Type="int" Nullable="false" />
+    <Property Name="dname" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="dAddress" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="dGender" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Phone No" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="emmployee">
     <Key>
       <PropertyRef Name="eid" />
     </Key>
-    <Property Name="eid" Type="int" Nullable="false" />
+    <Property Name="eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ename" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="eaddress" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="egender" Type="varchar" MaxLength="40" Nullable="false" />
-    <Property Name="AGe" Type="int" Nullable="false" />
-    <Property Name="Phone No" Type="bigint" />
+    <Property Name="Contact" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Std_table">
+    <Key>
+      <PropertyRef Name="Sid" />
+    </Key>
+    <Property Name="Sid" Type="int" Nullable="false" />
+    <Property Name="Sname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Saddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sgender" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Phone No" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityContainer Name="AnoopModel1StoreContainer">
+    <EntitySet Name="doctabl" EntityType="Self.doctabl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="emmployee" EntityType="Self.emmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Std_table" EntityType="Self.Std_table" Schema="dbo" Table="Std.table" store:Type="Tables" />
   </EntityContainer>
 </Schema>
