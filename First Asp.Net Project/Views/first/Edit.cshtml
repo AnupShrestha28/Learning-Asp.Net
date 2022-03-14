@@ -1,0 +1,33 @@
+﻿@model First_Asp.Net_Project.Models.emmployee
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+
+
+@using (Html.BeginForm("Updatedata", "first"))
+{
+    <input type="hidden" name="eid" value="@Model.eid"/>
+    <label class="col-md-2">Name</label><br />
+    <div class="col-md-4">
+        <input type="text" name="ename" class="form-control" value="@Model.ename" />
+    </div>
+
+    <label class="col-md-2">Address</label><br />
+    <div class="col-md-4">
+        <input type="text" name="eaddress" class="form-control" value="@Model.eaddress" />
+    </div>
+
+    <label class="col-md-2">Contact</label><br />
+    <div class="col-md-4">
+        <input type="text" name="contact" class="form-control" value="@Model.Contact" />
+    </div><br />
+
+    <div class="col-md-2">
+        <input type="Submit" class="btn btn-success" value="Save" />
+    </div>
+}
+

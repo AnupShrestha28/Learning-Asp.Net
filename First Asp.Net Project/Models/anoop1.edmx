@@ -21,7 +21,7 @@
             <PropertyRef Name="eid" />
           </Key>
           <Property Name="eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ename" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ename" Type="varchar" MaxLength="70" Nullable="false" />
           <Property Name="eaddress" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Contact" Type="bigint" />
         </EntityType>
@@ -66,7 +66,7 @@
             <PropertyRef Name="eid" />
           </Key>
           <Property Name="eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ename" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ename" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="eaddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Contact" Type="Int64" />
         </EntityType>

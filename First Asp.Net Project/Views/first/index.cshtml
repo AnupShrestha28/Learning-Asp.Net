@@ -10,7 +10,7 @@
 <style>
     .table{
         color:white;
-        background-color:#088178;
+        background-color:black;
     }
 </style>
 
@@ -19,6 +19,8 @@
         <th>ID</th>
         <th>Name</th>
         <th>Address</th>
+        <th>Contact</th>
+        <th>Edit</th>
     </tr>
     @foreach(var data in Model)
             {
@@ -27,6 +29,7 @@
     <td>@(data.ename)</td>
     <td>@(data.eaddress)</td>
     <td>@(data.Contact)</td>
+    <td><a href="@Url.Action("edit",new {id = data.eid})">Edit</a></td>
 </tr>
             }
 </table>

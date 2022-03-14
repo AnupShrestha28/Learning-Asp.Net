@@ -16,7 +16,7 @@
       <PropertyRef Name="eid" />
     </Key>
     <Property Name="eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ename" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ename" Type="varchar" MaxLength="70" Nullable="false" />
     <Property Name="eaddress" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Contact" Type="bigint" />
   </EntityType>

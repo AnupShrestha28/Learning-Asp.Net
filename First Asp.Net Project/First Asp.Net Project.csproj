@@ -215,6 +215,7 @@
     <Content Include="Views\first\index.cshtml" />
     <Content Include="Views\first\doctor.cshtml" />
     <Content Include="Views\first\anoops.cshtml" />
+    <Content Include="Views\first\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
