@@ -1,21 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AnoopModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="AnoopEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="doctabls" EntityType="AnoopModel1.doctabl" />
     <EntitySet Name="emmployees" EntityType="AnoopModel1.emmployee" />
     <EntitySet Name="Std_table" EntityType="AnoopModel1.Std_table" />
+    <EntitySet Name="teachers" EntityType="AnoopModel1.teacher" />
   </EntityContainer>
-  <EntityType Name="doctabl">
-    <Key>
-      <PropertyRef Name="did" />
-    </Key>
-    <Property Name="did" Type="Int32" Nullable="false" />
-    <Property Name="dname" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="dAddress" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Name="dGender" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Age" Type="Int32" Nullable="false" />
-    <Property Name="Phone_No" Type="Int64" Nullable="false" />
-  </EntityType>
   <EntityType Name="emmployee">
     <Key>
       <PropertyRef Name="eid" />
@@ -35,5 +24,14 @@
     <Property Name="Sgender" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
     <Property Name="Age" Type="Int32" Nullable="false" />
     <Property Name="Phone_No" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="Teacher_id" />
+    </Key>
+    <Property Name="Teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Teacher_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Teacher_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Teacher_Phone" Type="Int64" Nullable="false" />
   </EntityType>
 </Schema>

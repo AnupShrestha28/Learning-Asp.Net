@@ -14,6 +14,8 @@
     }
 </style>
 
+<a href="@Url.Action("Anoops")">Add a new record</a>
+
 <table class="table" border="1">
     <tr>
         <th>ID</th>
@@ -30,6 +32,7 @@
     <td>@(data.eaddress)</td>
     <td>@(data.Contact)</td>
     <td><a href="@Url.Action("edit",new {id = data.eid})">Edit</a></td>
+    <td><a href="@Url.Action("deletedata",new {e_id = data.eid})">Delete</a></td>
 </tr>
             }
 </table>

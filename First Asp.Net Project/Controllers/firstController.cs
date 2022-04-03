@@ -17,11 +17,7 @@ namespace First_Asp.Net_Project.Controllers
             List<emmployee> all_data = db.emmployees.ToList();
             return View(all_data);
         }
-        public ActionResult doctor()
-        {
-            List<doctabl> all_data = db.doctabls.ToList();
-            return View(all_data);
-        }
+        
 
 
         public ActionResult anoops()
@@ -40,7 +36,7 @@ namespace First_Asp.Net_Project.Controllers
         {
             db.emmployees.Add(emmployee);
             db.SaveChanges();
-            return RedirectToAction("Doctor");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Updatedata(emmployee emmployee)
@@ -55,5 +51,15 @@ namespace First_Asp.Net_Project.Controllers
           //emmployee emmployee = db.emmployees.FirstOrDefault(x => x.id == id);
             return View(emmployee);
         }
+        public ActionResult deletedata(int e_id)
+
+        {
+            emmployee data = db.emmployees.Find(e_id);
+            db.emmployees.Remove(data);
+            db.SaveChanges();
+            return RedirectToAction("index");
+
+        }
+
     }
 }

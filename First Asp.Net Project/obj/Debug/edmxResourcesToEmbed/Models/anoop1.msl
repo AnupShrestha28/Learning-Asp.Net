@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AnoopModel1StoreContainer" CdmEntityContainer="AnoopEntities">
-    <EntitySetMapping Name="doctabls">
-      <EntityTypeMapping TypeName="AnoopModel1.doctabl">
-        <MappingFragment StoreEntitySet="doctabl">
-          <ScalarProperty Name="Phone_No" ColumnName="Phone No" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
-          <ScalarProperty Name="dGender" ColumnName="dGender" />
-          <ScalarProperty Name="dAddress" ColumnName="dAddress" />
-          <ScalarProperty Name="dname" ColumnName="dname" />
-          <ScalarProperty Name="did" ColumnName="did" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="emmployees">
       <EntityTypeMapping TypeName="AnoopModel1.emmployee">
         <MappingFragment StoreEntitySet="emmployee">
@@ -32,6 +20,16 @@
           <ScalarProperty Name="Saddress" ColumnName="Saddress" />
           <ScalarProperty Name="Sname" ColumnName="Sname" />
           <ScalarProperty Name="Sid" ColumnName="Sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="AnoopModel1.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="Teacher_Phone" ColumnName="Teacher_Phone" />
+          <ScalarProperty Name="Teacher_address" ColumnName="Teacher_address" />
+          <ScalarProperty Name="Teacher_name" ColumnName="Teacher_name" />
+          <ScalarProperty Name="Teacher_id" ColumnName="Teacher_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

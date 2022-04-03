@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ea43656f96d247ed87258768e2c61d49" Name="Diagram1" ZoomLevel="115">
-        <EntityTypeShape EntityType="AnoopModel1.doctabl" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="AnoopModel1.emmployee" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="AnoopModel1.Std_table" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AnoopModel1.teacher" Width="1.5" PointX="2.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,40 @@
+﻿
+
+
+@model  List<First_Asp.Net_Project.Models.teacher>
+@{
+    ViewBag.Title = "index2";
+    int id = 0;
+}
+
+<h2>index</h2>
+<style>
+    .table {
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<a href="@Url.Action("Create")">Create</a>
+
+<table class="table" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>PHONE</th>
+        <th>Edit</th>
+    </tr>
+    @foreach (var data in Model)
+    {
+<tr>
+    <td>@(++id)</td>
+    <td>@(data.Teacher_name)</td>
+    <td>@(data.Teacher_address)</td>
+    <td>@(data.Teacher_Phone)</td>
+    <td><a href="@Url.Action("edit",new {id = data.Teacher_id})">Edit</a></td>
+    <td><a href="@Url.Action("deletedata",new { teacher_id = data.Teacher_id })">Delete</a></td>
+
+</tr>
+    }
+</table>

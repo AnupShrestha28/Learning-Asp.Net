@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\firstController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\secondController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,13 +149,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>anoop1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\doctabl.cs">
-      <DependentUpon>anoop1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\emmployee.cs">
       <DependentUpon>anoop1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Std_table.cs">
+      <DependentUpon>anoop1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\teacher.cs">
       <DependentUpon>anoop1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,9 +214,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\first\index.cshtml" />
-    <Content Include="Views\first\doctor.cshtml" />
     <Content Include="Views\first\anoops.cshtml" />
     <Content Include="Views\first\Edit.cshtml" />
+    <Content Include="Views\second\index2.cshtml" />
+    <Content Include="Views\second\create.cshtml" />
+    <Content Include="Views\second\edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
