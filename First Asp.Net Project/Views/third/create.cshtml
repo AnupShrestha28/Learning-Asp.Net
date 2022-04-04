@@ -1,0 +1,35 @@
+﻿@model First_Asp.Net_Project.Models.employee_salary_details
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Edit</h2>
+
+
+
+
+@using (Html.BeginForm("Savedata", "third"))
+{
+    <label class="col-md-2">Employee Id</label>
+    <br />
+    <div class="col-md-4">
+        <input type="text" name="employee_id" class="form-control" />
+    </div>
+
+    <label class="col-md-2">Salary Paid</label>
+    <br />
+    <div class="col-md-4">
+        <input type="text" name="salary_paid" class="form-control" />
+    </div>
+
+    <label class="col-md-2">Paid Date</label>
+    <br />
+    <div class="col-md-4">
+        <input type="date" name="paid_date" class="form-control" />
+    </div>
+    <br />
+
+    <div class="col-md-2">
+        <input type="Submit" class="btn btn-success" value="Save" />
+    </div>
+}

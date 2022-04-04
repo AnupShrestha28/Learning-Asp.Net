@@ -11,6 +11,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="employee_salary_details">
+      <EntityTypeMapping TypeName="AnoopModel1.employee_salary_details">
+        <MappingFragment StoreEntitySet="employee_salary_details">
+          <ScalarProperty Name="paid_data" ColumnName="paid_data" />
+          <ScalarProperty Name="salary_paid" ColumnName="salary_paid" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Std_table">
       <EntityTypeMapping TypeName="AnoopModel1.Std_table">
         <MappingFragment StoreEntitySet="Std_table">

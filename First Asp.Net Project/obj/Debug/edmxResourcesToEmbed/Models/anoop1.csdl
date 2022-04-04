@@ -2,8 +2,13 @@
 <Schema Namespace="AnoopModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="AnoopEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="emmployees" EntityType="AnoopModel1.emmployee" />
+    <EntitySet Name="employee_salary_details" EntityType="AnoopModel1.employee_salary_details" />
     <EntitySet Name="Std_table" EntityType="AnoopModel1.Std_table" />
     <EntitySet Name="teachers" EntityType="AnoopModel1.teacher" />
+    <AssociationSet Name="FK_employee_salary_details_emmployee" Association="AnoopModel1.FK_employee_salary_details_emmployee">
+      <End Role="emmployee" EntitySet="emmployees" />
+      <End Role="employee_salary_details" EntitySet="employee_salary_details" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="emmployee">
     <Key>
@@ -13,6 +18,17 @@
     <Property Name="ename" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
     <Property Name="eaddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Contact" Type="Int64" />
+    <NavigationProperty Name="employee_salary_details" Relationship="AnoopModel1.FK_employee_salary_details_emmployee" FromRole="emmployee" ToRole="employee_salary_details" />
+  </EntityType>
+  <EntityType Name="employee_salary_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="employee_id" Type="Int32" Nullable="false" />
+    <Property Name="salary_paid" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="paid_data" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="emmployee" Relationship="AnoopModel1.FK_employee_salary_details_emmployee" FromRole="employee_salary_details" ToRole="emmployee" />
   </EntityType>
   <EntityType Name="Std_table">
     <Key>
@@ -34,4 +50,16 @@
     <Property Name="Teacher_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Teacher_Phone" Type="Int64" Nullable="false" />
   </EntityType>
+  <Association Name="FK_employee_salary_details_emmployee">
+    <End Type="AnoopModel1.emmployee" Role="emmployee" Multiplicity="1" />
+    <End Type="AnoopModel1.employee_salary_details" Role="employee_salary_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="emmployee">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="employee_salary_details">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

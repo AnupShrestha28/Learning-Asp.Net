@@ -14,9 +14,18 @@ namespace First_Asp.Net_Project.Models
     
     public partial class emmployee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public emmployee()
+        {
+            this.employee_salary_details = new HashSet<employee_salary_details>();
+        }
+    
         public int eid { get; set; }
         public string ename { get; set; }
         public string eaddress { get; set; }
         public Nullable<long> Contact { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<employee_salary_details> employee_salary_details { get; set; }
     }
 }

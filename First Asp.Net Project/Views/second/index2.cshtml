@@ -7,7 +7,7 @@
     int id = 0;
 }
 
-<h2>index</h2>
+<h2>Index</h2>
 <style>
     .table {
         color: white;
@@ -15,7 +15,7 @@
     }
 </style>
 
-<a href="@Url.Action("Create")">Create</a>
+<a href="@Url.Action("Create")">Add a new record</a>
 
 <table class="table" border="1">
     <tr>
@@ -24,6 +24,7 @@
         <th>Address</th>
         <th>PHONE</th>
         <th>Edit</th>
+        <th>Delete</th>
     </tr>
     @foreach (var data in Model)
     {

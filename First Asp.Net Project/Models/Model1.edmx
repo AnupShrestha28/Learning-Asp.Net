@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AnoopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="emmployee">
+          <Key>
+            <PropertyRef Name="eid" />
+          </Key>
+          <Property Name="eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ename" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="eaddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Contact" Type="bigint" />
+        </EntityType>
+        <EntityType Name="employee_salary_details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="employee_id" Type="int" Nullable="false" />
+          <Property Name="salary_paid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="paid_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Std_table">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="int" Nullable="false" />
+          <Property Name="Sname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Saddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sgender" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Phone No" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="Teacher_id" />
+          </Key>
+          <Property Name="Teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Teacher_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Teacher_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Teacher_Phone" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_employee_salary_details_emmployee">
+          <End Role="emmployee" Type="Self.emmployee" Multiplicity="1" />
+          <End Role="employee_salary_details" Type="Self.employee_salary_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="emmployee">
+              <PropertyRef Name="eid" />
+            </Principal>
+            <Dependent Role="employee_salary_details">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnoopModelStoreContainer">
+          <EntitySet Name="emmployee" EntityType="Self.emmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee_salary_details" EntityType="Self.employee_salary_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Std_table" EntityType="Self.Std_table" Schema="dbo" Table="Std.table" store:Type="Tables" />
+          <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_employee_salary_details_emmployee" Association="Self.FK_employee_salary_details_emmployee">
+            <End Role="emmployee" EntitySet="emmployee" />
+            <End Role="employee_salary_details" EntitySet="employee_salary_details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnoopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="emmployee">
+          <Key>
+            <PropertyRef Name="eid" />
+          </Key>
+          <Property Name="eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ename" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contact" Type="Int64" />
+          <NavigationProperty Name="employee_salary_details" Relationship="Self.FK_employee_salary_details_emmployee" FromRole="emmployee" ToRole="employee_salary_details" />
+        </EntityType>
+        <EntityType Name="employee_salary_details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="employee_id" Type="Int32" Nullable="false" />
+          <Property Name="salary_paid" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="paid_date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="emmployee" Relationship="Self.FK_employee_salary_details_emmployee" FromRole="employee_salary_details" ToRole="emmployee" />
+        </EntityType>
+        <EntityType Name="Std_table">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="Int32" Nullable="false" />
+          <Property Name="Sname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Saddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sgender" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Phone_No" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="Teacher_id" />
+          </Key>
+          <Property Name="Teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Teacher_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_Phone" Type="Int64" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_employee_salary_details_emmployee">
+          <End Role="emmployee" Type="Self.emmployee" Multiplicity="1" />
+          <End Role="employee_salary_details" Type="Self.employee_salary_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="emmployee">
+              <PropertyRef Name="eid" />
+            </Principal>
+            <Dependent Role="employee_salary_details">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnoopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="emmployees" EntityType="Self.emmployee" />
+          <EntitySet Name="employee_salary_details" EntityType="Self.employee_salary_details" />
+          <EntitySet Name="Std_table" EntityType="Self.Std_table" />
+          <EntitySet Name="teachers" EntityType="Self.teacher" />
+          <AssociationSet Name="FK_employee_salary_details_emmployee" Association="Self.FK_employee_salary_details_emmployee">
+            <End Role="emmployee" EntitySet="emmployees" />
+            <End Role="employee_salary_details" EntitySet="employee_salary_details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnoopModelStoreContainer" CdmEntityContainer="AnoopEntities">
+          <EntitySetMapping Name="emmployees">
+            <EntityTypeMapping TypeName="AnoopModel.emmployee">
+              <MappingFragment StoreEntitySet="emmployee">
+                <ScalarProperty Name="eid" ColumnName="eid" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="eaddress" ColumnName="eaddress" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee_salary_details">
+            <EntityTypeMapping TypeName="AnoopModel.employee_salary_details">
+              <MappingFragment StoreEntitySet="employee_salary_details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="salary_paid" ColumnName="salary_paid" />
+                <ScalarProperty Name="paid_date" ColumnName="paid_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Std_table">
+            <EntityTypeMapping TypeName="AnoopModel.Std_table">
+              <MappingFragment StoreEntitySet="Std_table">
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="Saddress" ColumnName="Saddress" />
+                <ScalarProperty Name="Sgender" ColumnName="Sgender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teachers">
+            <EntityTypeMapping TypeName="AnoopModel.teacher">
+              <MappingFragment StoreEntitySet="teacher">
+                <ScalarProperty Name="Teacher_id" ColumnName="Teacher_id" />
+                <ScalarProperty Name="Teacher_name" ColumnName="Teacher_name" />
+                <ScalarProperty Name="Teacher_address" ColumnName="Teacher_address" />
+                <ScalarProperty Name="Teacher_Phone" ColumnName="Teacher_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

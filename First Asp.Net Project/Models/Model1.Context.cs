@@ -26,6 +26,7 @@ namespace First_Asp.Net_Project.Models
         }
     
         public virtual DbSet<emmployee> emmployees { get; set; }
+        public virtual DbSet<employee_salary_details> employee_salary_details { get; set; }
         public virtual DbSet<Std_table> Std_table { get; set; }
         public virtual DbSet<teacher> teachers { get; set; }
     }

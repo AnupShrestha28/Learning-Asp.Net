@@ -9,6 +9,15 @@
     <Property Name="eaddress" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Contact" Type="bigint" />
   </EntityType>
+  <EntityType Name="employee_salary_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="employee_id" Type="int" Nullable="false" />
+    <Property Name="salary_paid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="paid_data" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Std_table">
     <Key>
       <PropertyRef Name="Sid" />
@@ -29,9 +38,26 @@
     <Property Name="Teacher_address" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Teacher_Phone" Type="bigint" Nullable="false" />
   </EntityType>
+  <Association Name="FK_employee_salary_details_emmployee">
+    <End Role="emmployee" Type="Self.emmployee" Multiplicity="1" />
+    <End Role="employee_salary_details" Type="Self.employee_salary_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="emmployee">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="employee_salary_details">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="AnoopModel1StoreContainer">
     <EntitySet Name="emmployee" EntityType="Self.emmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employee_salary_details" EntityType="Self.employee_salary_details" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Std_table" EntityType="Self.Std_table" Schema="dbo" Table="Std.table" store:Type="Tables" />
     <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_employee_salary_details_emmployee" Association="Self.FK_employee_salary_details_emmployee">
+      <End Role="emmployee" EntitySet="emmployee" />
+      <End Role="employee_salary_details" EntitySet="employee_salary_details" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>
