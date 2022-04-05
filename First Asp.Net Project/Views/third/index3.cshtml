@@ -7,7 +7,7 @@
     int id = 0;
 }
 
-<h2>Index</h2>
+<h2>Employee Salary Details</h2>
 <style>
     .table {
         color: white;
@@ -20,6 +20,7 @@
 <table class="table" border="1">
     <tr>
         <th>ID</th>
+        <th>EMPLOYEE_NAME</th>
         <th>EMPLOYEE_ID</th>
         <th>SALARY PAID</th>
         <th>PAID_DATE</th>
@@ -28,14 +29,15 @@
     </tr>
     @foreach (var data in Model)
     {
-        <tr>
-            <td>@(++id)</td>
-            <td>@(data.employee_id)</td>
-            <td>@(data.salary_paid)</td>
-            <td>@(data.paid_date)</td>
-            <td><a href="@Url.Action("edit",new {id = data.employee_id})">Edit</a></td>
-            <td><a href="@Url.Action("deletedata",new { id = data.id })">Delete</a></td>
+<tr>
+    <td>@(++id)</td>
+    <td>@(data.emmployee.ename)</td>
+    <td>@(data.employee_id)</td>
+    <td>@(data.salary_paid)</td>
+    <td>@(data.paid_date)</td>
+    <td><a href="@Url.Action("Edit",new {id = data.id})">Edit</a></td>
+    <td><a href="@Url.Action("deletedata",new { id = data.id })">Delete</a></td>
 
-        </tr>
+</tr>
     }
 </table>

@@ -4,42 +4,42 @@
     <EntitySetMapping Name="emmployees">
       <EntityTypeMapping TypeName="AnoopModel.emmployee">
         <MappingFragment StoreEntitySet="emmployee">
-          <ScalarProperty Name="eid" ColumnName="eid" />
-          <ScalarProperty Name="ename" ColumnName="ename" />
-          <ScalarProperty Name="eaddress" ColumnName="eaddress" />
           <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="eaddress" ColumnName="eaddress" />
+          <ScalarProperty Name="ename" ColumnName="ename" />
+          <ScalarProperty Name="eid" ColumnName="eid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="employee_salary_details">
       <EntityTypeMapping TypeName="AnoopModel.employee_salary_details">
         <MappingFragment StoreEntitySet="employee_salary_details">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
-          <ScalarProperty Name="salary_paid" ColumnName="salary_paid" />
           <ScalarProperty Name="paid_date" ColumnName="paid_date" />
+          <ScalarProperty Name="salary_paid" ColumnName="salary_paid" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Std_table">
       <EntityTypeMapping TypeName="AnoopModel.Std_table">
         <MappingFragment StoreEntitySet="Std_table">
-          <ScalarProperty Name="Sid" ColumnName="Sid" />
-          <ScalarProperty Name="Sname" ColumnName="Sname" />
-          <ScalarProperty Name="Saddress" ColumnName="Saddress" />
-          <ScalarProperty Name="Sgender" ColumnName="Sgender" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="Phone_No" ColumnName="Phone No" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Sgender" ColumnName="Sgender" />
+          <ScalarProperty Name="Saddress" ColumnName="Saddress" />
+          <ScalarProperty Name="Sname" ColumnName="Sname" />
+          <ScalarProperty Name="Sid" ColumnName="Sid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="teachers">
       <EntityTypeMapping TypeName="AnoopModel.teacher">
         <MappingFragment StoreEntitySet="teacher">
-          <ScalarProperty Name="Teacher_id" ColumnName="Teacher_id" />
-          <ScalarProperty Name="Teacher_name" ColumnName="Teacher_name" />
-          <ScalarProperty Name="Teacher_address" ColumnName="Teacher_address" />
           <ScalarProperty Name="Teacher_Phone" ColumnName="Teacher_Phone" />
+          <ScalarProperty Name="Teacher_address" ColumnName="Teacher_address" />
+          <ScalarProperty Name="Teacher_name" ColumnName="Teacher_name" />
+          <ScalarProperty Name="Teacher_id" ColumnName="Teacher_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

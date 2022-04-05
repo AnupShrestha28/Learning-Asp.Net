@@ -1,33 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AnoopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AnoopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="emmployees" EntityType="AnoopModel.emmployee" />
+    <EntitySet Name="employee_salary_details" EntityType="AnoopModel.employee_salary_details" />
+    <EntitySet Name="Std_table" EntityType="AnoopModel.Std_table" />
+    <EntitySet Name="teachers" EntityType="AnoopModel.teacher" />
+    <AssociationSet Name="FK_employee_salary_details_emmployee" Association="AnoopModel.FK_employee_salary_details_emmployee">
+      <End Role="emmployee" EntitySet="emmployees" />
+      <End Role="employee_salary_details" EntitySet="employee_salary_details" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="emmployee">
     <Key>
       <PropertyRef Name="eid" />
     </Key>
     <Property Name="eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ename" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="eaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ename" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="eaddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Contact" Type="Int64" />
-    <NavigationProperty Name="employee_salary_details" Relationship="Self.FK_employee_salary_details_emmployee" FromRole="emmployee" ToRole="employee_salary_details" />
+    <NavigationProperty Name="employee_salary_details" Relationship="AnoopModel.FK_employee_salary_details_emmployee" FromRole="emmployee" ToRole="employee_salary_details" />
   </EntityType>
   <EntityType Name="employee_salary_details">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="employee_id" Type="Int32" Nullable="false" />
-    <Property Name="salary_paid" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="salary_paid" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="paid_date" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="emmployee" Relationship="Self.FK_employee_salary_details_emmployee" FromRole="employee_salary_details" ToRole="emmployee" />
+    <NavigationProperty Name="emmployee" Relationship="AnoopModel.FK_employee_salary_details_emmployee" FromRole="employee_salary_details" ToRole="emmployee" />
   </EntityType>
   <EntityType Name="Std_table">
     <Key>
       <PropertyRef Name="Sid" />
     </Key>
     <Property Name="Sid" Type="Int32" Nullable="false" />
-    <Property Name="Sname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Saddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Sgender" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Saddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sgender" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
     <Property Name="Age" Type="Int32" Nullable="false" />
     <Property Name="Phone_No" Type="Int64" Nullable="false" />
   </EntityType>
@@ -36,13 +46,13 @@
       <PropertyRef Name="Teacher_id" />
     </Key>
     <Property Name="Teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Teacher_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Teacher_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Teacher_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Teacher_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Teacher_Phone" Type="Int64" Nullable="false" />
   </EntityType>
   <Association Name="FK_employee_salary_details_emmployee">
-    <End Role="emmployee" Type="Self.emmployee" Multiplicity="1" />
-    <End Role="employee_salary_details" Type="Self.employee_salary_details" Multiplicity="*" />
+    <End Type="AnoopModel.emmployee" Role="emmployee" Multiplicity="1" />
+    <End Type="AnoopModel.employee_salary_details" Role="employee_salary_details" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="emmployee">
         <PropertyRef Name="eid" />
@@ -52,14 +62,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="AnoopEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="emmployees" EntityType="Self.emmployee" />
-    <EntitySet Name="employee_salary_details" EntityType="Self.employee_salary_details" />
-    <EntitySet Name="Std_table" EntityType="Self.Std_table" />
-    <EntitySet Name="teachers" EntityType="Self.teacher" />
-    <AssociationSet Name="FK_employee_salary_details_emmployee" Association="Self.FK_employee_salary_details_emmployee">
-      <End Role="emmployee" EntitySet="emmployees" />
-      <End Role="employee_salary_details" EntitySet="employee_salary_details" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

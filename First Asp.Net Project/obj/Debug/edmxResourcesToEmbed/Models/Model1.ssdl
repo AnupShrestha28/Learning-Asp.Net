@@ -13,7 +13,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="employee_id" Type="int" Nullable="false" />
     <Property Name="salary_paid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="paid_date" Type="datetime" Nullable="false" />

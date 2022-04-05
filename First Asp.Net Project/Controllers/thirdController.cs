@@ -19,9 +19,12 @@ namespace First_Asp.Net_Project.Controllers
         }
         public ActionResult create()
         {
-
+            var emplist = db.emmployees.ToList();
+            //viewbag empList = emplist;
+            ViewBag.employeeList = new SelectList(emplist, "eid", "ename");
             return View();
         }
+        
         public ActionResult SaveData(employee_salary_details employee_Salary_Details)
         {
             db.employee_salary_details.Add(employee_Salary_Details);
@@ -32,18 +35,22 @@ namespace First_Asp.Net_Project.Controllers
         {
             db.Entry(employee_Salary_Details).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index2");
+            return RedirectToAction("Index3");
         }
         public ActionResult Edit(int id)
         {
+            var emplist = db.emmployees.ToList();
+            //viewbag empList = emplist;
+            ViewBag.employeeList = new SelectList(emplist, "eid", "ename");
             employee_salary_details employee_Salary_Details = db.employee_salary_details.Find(id);
             //emmployee emmployee = db.emmployees.FirstOrDefault(x => x.id == id);
             return View(employee_Salary_Details);
+
         }
-        public ActionResult deletedata(int employee_id)
+        public ActionResult deletedata(int id)
 
         {
-            employee_salary_details data = db.employee_salary_details.Find(employee_id);
+            employee_salary_details data = db.employee_salary_details.Find(id);
             db.employee_salary_details.Remove(data);
             db.SaveChanges();
             return RedirectToAction("index3");

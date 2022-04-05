@@ -132,6 +132,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\secondController.cs" />
     <Compile Include="Controllers\thirdController.cs" />
+    <Compile Include="Controllers\ViewBag.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

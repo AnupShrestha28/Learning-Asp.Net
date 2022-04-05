@@ -8,14 +8,14 @@
 
 
 
-@using (Html.BeginForm("Savedata", "third"))
+@using (Html.BeginForm("Savedata", "third", FormMethod.Post))
 {
-    <label class="col-md-2">Employee Id</label>
-    <br />
-    <div class="col-md-4">
-        <input type="text" name="employee_id" class="form-control" />
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label>Employee Name</label>
+        </div>
+        @Html.DropDownList("employeeList", null, "Select", htmlAttributes: new { @Name = "employee_id", @class = "Form-control" });
     </div>
-
     <label class="col-md-2">Salary Paid</label>
     <br />
     <div class="col-md-4">
