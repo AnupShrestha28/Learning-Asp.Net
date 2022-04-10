@@ -228,6 +228,7 @@
     <Content Include="Views\third\create.cshtml" />
     <Content Include="Views\third\edit.cshtml" />
     <Content Include="Views\third\index3.cshtml" />
+    <Content Include="Views\fourth.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
