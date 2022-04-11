@@ -24,7 +24,7 @@ namespace First_Asp.Net_Project.Controllers
             ViewBag.employeeList = new SelectList(emplist, "eid", "ename");
             return View();
         }
-        
+
         public ActionResult SaveData(employee_salary_details employee_Salary_Details)
         {
             db.employee_salary_details.Add(employee_Salary_Details);
@@ -32,11 +32,21 @@ namespace First_Asp.Net_Project.Controllers
             return RedirectToAction("Index3");
         }
         [HttpPost]
-        public ActionResult Index3 (DateTime dat, DateTime datt)
+        public ActionResult Index3(DateTime? dat, DateTime? datt, string nam)
         {
-            var results = db.employee_salary_details.Where(x => x.paid_date  >=  dat && x.paid_date <= datt).ToList();
+            var results = db.employee_salary_details.ToList();
+            if (dat != null && datt != null)
+            {
+                results = results.Where(x => x.paid_date >= dat && x.paid_date <= datt).ToList();
+            }
+            if (nam != null && nam != "")
+            {
+                results = results.Where(x => x.emmployee.ename == nam).ToList();
+            }
             return View(results);
         }
+
+
         public ActionResult Updatedata(employee_salary_details employee_Salary_Details)
         {
             db.Entry(employee_Salary_Details).State = EntityState.Modified;
