@@ -31,6 +31,12 @@ namespace First_Asp.Net_Project.Controllers
             db.SaveChanges();
             return RedirectToAction("Index3");
         }
+        [HttpPost]
+        public ActionResult Index3 (DateTime dat, DateTime datt)
+        {
+            var results = db.employee_salary_details.Where(x => x.paid_date  >=  dat && x.paid_date <= datt).ToList();
+            return View(results);
+        }
         public ActionResult Updatedata(employee_salary_details employee_Salary_Details)
         {
             db.Entry(employee_Salary_Details).State = EntityState.Modified;

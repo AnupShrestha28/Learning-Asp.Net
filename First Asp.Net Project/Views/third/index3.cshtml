@@ -1,7 +1,4 @@
-﻿
-
-
-@model  List<First_Asp.Net_Project.Models.employee_salary_details>
+﻿@model  List<First_Asp.Net_Project.Models.employee_salary_details>
 @{
     ViewBag.Title = "index3";
     int id = 0;
@@ -13,10 +10,32 @@
         color: white;
         background-color: black;
     }
+    .search{
+
+        background-color:darkslateblue;
+        color:white;
+        border:none;
+        font-size:18px;
+        border-radius:3px;
+        font-family:sans-serif;
+        cursor:pointer;
+    }
+    .search:hover {
+            background-color: #387139;
+            color: aliceblue;
+      }
+   
 </style>
 
-<a href="@Url.Action("create")">Add a new record</a>
 
+@using (Html.BeginForm("Index3", null, FormMethod.Post))
+{
+
+<a href="@Url.Action("create")">Add a new record</a><br /><br />
+
+<input type="date" name="dat" value="" class="datee"/>
+<input type="date" name="datt" value="" class="datee"/>
+<button class="search">Search</button><br/><br/>
 <table class="table" border="1">
     <tr>
         <th>ID</th>
@@ -35,13 +54,14 @@
     <td>@(data.employee_id)</td>
     <td>@(data.salary_paid)</td>
     <td>@(data.paid_date)</td>
-    <td><a href="@Url.Action("Edit",new {id = data.id})">Edit</a></td>
-    <td><a href="@Url.Action("deletedata",new { id = data.id })">Delete</a></td>
+    <td><a href="@Url.Action("Edit", new { id = data.id })">Edit</a></td>
+    <td><a href="@Url.Action("deletedata", new { id = data.id })">Delete</a></td>
 
 </tr>
     }
 <tr>
     <td>Total</td>
-    <td colspan="2">@(Model.Sum(x=>x.salary_paid))</td>
+    <td colspan="2">@(Model.Sum(x => x.salary_paid))</td>
 </tr>
 </table>
+}
